@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hybrid GDPS — Demonlist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(circle at top, #12001f, #07000d);
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, #2a0044, #4a148c);
+    padding: 22px 15px 36px;
+    text-align: center;
+    border-radius: 0 0 28px 28px;
+    position: relative;
+    box-shadow: 0 0 25px rgba(120,80,200,0.45);
+}
+
+/* BURGER */
+.burger {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    cursor: pointer;
+}
+.burger span {
+    display: block;
+    height: 3px;
+    background: white;
+    margin: 6px 0;
+    border-radius: 3px;
+}
+
+/* MENU */
+.menu {
+    position: fixed;
+    top: 62px;
+    right: 14px;
+    width: 260px;
+    background: #0e0018;
+    border-radius: 18px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 0 25px rgba(120,80,200,0.6);
+    z-index: 9999;
+}
+
+.menu a {
+    display: block;
+    padding: 11px 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+}
+.menu a:hover {
+    background: #4a148c;
+}
+
+/* CONTENT */
+.container {
+    max-width: 1000px;
+    margin: 22px auto;
+    padding: 0 15px;
+}
+
+/* DEMON CARD */
+.demon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px;
+    margin-bottom: 16px;
+    border-radius: 18px;
+    background: linear-gradient(90deg, #12001f 0%, #1e0036 55%, #3a0f66 100%);
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,0.05),
+        0 0 16px rgba(120,80,200,0.35);
+}
+
+/* TOP 10 */
+.top10 {
+    background: linear-gradient(90deg, #180028 0%, #2a004d 55%, #5a2a8f 100%);
+    box-shadow:
+        0 0 22px rgba(160,110,220,0.75);
+    border: 1px solid rgba(255,255,255,0.18);
+}
+
+.cover {
+    width: 160px;
+    height: 50px; /* 19:6 */
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 0 14px rgba(150,100,220,0.7);
+    flex-shrink: 0;
+}
+
+.place {
+    font-weight: 700;
+    color: #f0caff;
+}
+.level {
+    font-size: 18px;
+    font-weight: 600;
+}
+.info {
+    font-size: 14px;
+    opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="menu" id="menu">
+        <a href="index.html">🏠 Demonlist</a>
+        <a href="rules.html">📜 Правила</a>
+        <a href="https://t.me/HybridDemonlist_bot" target="_blank">📤 Отправить рекорд</a>
+    </nav>
+
+    <h1>HYBRID GDPS</h1>
+    <p>Официальный Demonlist</p>
+</header>
+
+<div class="container" id="list"></div>
+
+<script>
+function toggleMenu() {
+    const m = document.getElementById("menu");
+    m.style.display = m.style.display === "block" ? "none" : "block";
+}
+
+const demons = [
+["Miha Difficult","Lunikay","240"],
+["Also Anathema","Burda5800GD","665"],
+["Equ1nox","—","300"],
+["Platinum circles","—","180"],
+["Ilovewave","Burda5800GD","408"],
+["Evil pebble","SuperDanya12 / Burda5800GD","398"],
+["Toxic Waste","TimurBossGD","644"],
+["2p force","—","443"],
+["CDVG","—","241"],
+["Maymory","Burda5800GD","393"],
+["Dual Switch","—","639"],
+["Goida Epta","JaggedDima","429"],
+["Diacet","—","566"],
+["Sine Wave","Burda5800GD","405"],
+["Fractured Reality","—","301"],
+["Heaven and hell","TimurBossGD","412"],
+["Unbound","—","367"],
+["Thinking Fuck","JaggedDima","127"],
+["8 bit game","—","396"],
+["Prism attack","—","582"],
+["DzhunGarik","—","316"],
+["WWW ship","—","638"],
+["U are an idiot","Burda5800GD","404"],
+["El3CTrO C1rcLeS","JaggedDima","227"],
+["Lava Bounce","SuperDanya12","394"],
+["Mania","JaggedDima","219"],
+["Star light","—","400"],
+["Victim","—","366"],
+["Pedik Circles","—","322"],
+["Magma Wave","—","223"],
+["Uwu carbon Diablo x","—","205"],
+["X3 kakoy circles","—","402"],
+["I chose to forget","—","545"],
+["Fucklirium","JaggedDima","112"],
+["Robotic Decrescent","—","341"],
+["World Wide Web","—","221"],
+["Final Boss","—","304"],
+["cLowNpaRtY","—","291"],
+["Neo","JaggedDima","250"],
+["Faith","—","305"],
+["Raapchik","JaggedDima","427"],
+["Wisp","Burda5800GD","403"],
+["Paravozik chuh chuh","Burda5800GD","407"],
+["Pograncircles","—","516"],
+["Mute","—","198"],
+["Sakupen end","TimurBossGD","533"],
+["Dream machine","—","438"],
+["Damp","—","491"],
+["Dream Madness","—","660"],
+["Blood circles","TimurBossGD","416"],
+["Clubbin","TimurBossGD","115"],
+["Sakupen Hybridness x","TimurBossGD","475"]
+];
+
+const list = document.getElementById("list");
+
+demons.forEach((d, i) => {
+    const top = i < 10 ? "top10" : "";
+    list.innerHTML += `
+    <div class="demon ${top}">
+        <img class="cover" src="covers/${i+1}.png">
+        <div>
+            <div class="place">#${i+1}</div>
+            <div class="level">${d[0]}</div>
+            <div class="info">Верифер: ${d[1]}</div>
+            <div class="info">ID: ${d[2]}</div>
+        </div>
+    </div>`;
+});
+</script>
+
+</body>
+</html>

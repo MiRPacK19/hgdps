@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hybrid GDPS — Правила</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(circle at top, #12001f, #07000d);
+    color: #fff;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, #2a0044, #4a148c);
+    padding: 22px 15px 36px;
+    text-align: center;
+    border-radius: 0 0 28px 28px;
+    position: relative;
+    box-shadow: 0 0 25px rgba(120,80,200,0.45);
+}
+
+/* BURGER */
+.burger {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    cursor: pointer;
+}
+.burger span {
+    display: block;
+    height: 3px;
+    background: white;
+    margin: 6px 0;
+    border-radius: 3px;
+}
+
+/* MENU */
+.menu {
+    position: fixed;
+    top: 62px;
+    right: 14px;
+    width: 260px;
+    background: #0e0018;
+    border-radius: 18px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 0 25px rgba(120,80,200,0.6);
+    z-index: 9999;
+}
+
+.menu a {
+    display: block;
+    padding: 11px 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+}
+.menu a:hover {
+    background: #4a148c;
+}
+
+/* CONTENT */
+.container {
+    max-width: 900px;
+    margin: 22px auto;
+    padding: 0 15px;
+}
+
+/* RULE BLOCK */
+.rule-block {
+    background: linear-gradient(90deg, #12001f 0%, #1e0036 55%, #3a0f66 100%);
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,0.05),
+        0 0 16px rgba(120,80,200,0.35);
+}
+
+.rule-block h2 {
+    margin-top: 0;
+    color: #f0caff;
+}
+
+.rule-block ul {
+    padding-left: 20px;
+}
+
+.rule-block li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="burger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+
+    <nav class="menu" id="menu">
+        <a href="index.html">🏠 Demonlist</a>
+        <a href="rules.html">📜 Правила</a>
+        <a href="https://t.me/hybrid_gdps_bot" target="_blank">📤 Отправить рекорд</a>
+    </nav>
+
+    <h1>HYBRID GDPS</h1>
+    <p>Правила Demonlist</p>
+</header>
+
+<div class="container">
+
+    <div class="rule-block">
+        <h2>📌 Общие правила</h2>
+        <ul>
+            <li>Прохождение должно быть выполнено честно, без читов и модификаций.</li>
+            <li>Использование багов или секретных путей уровня запрещено.</li>
+            <li>Прохождение должно быть записано на видео.</li>
+            <li>Видео должно быть без обрезок и ускорений.</li>
+        </ul>
+    </div>
+
+    <div class="rule-block">
+        <h2>🎥 Требования к видео</h2>
+        <ul>
+            <li>Должен быть виден полный HUD.</li>
+            <li>В начале видео должен быть показан старт уровня.</li>
+            <li>В конце видео должен быть показан экран завершения.</li>
+            <li>Качество видео должно быть не ниже 720p.</li>
+            <li>На видео должны присутствовать клики, надписи CPS, FPS, Cheat indicator.<li>
+        </ul>
+    </div>
+
+    <div class="rule-block">
+        <h2>🏆 Добавление рекордов</h2>
+        <ul>
+            <li>Рекорды отправляются через Telegram-бота.</li>
+            <li>Администрация оставляет за собой право отклонить рекорд.</li>
+            <li>Фейковые прохождения приведут к наказанию.</li>
+        </ul>
+    </div>
+
+    <div class="rule-block">
+        <h2>⚠️ Дополнительно</h2>
+        <ul>
+            <li>Правила могут обновляться без предупреждения.</li>
+            <li>Незнание правил не освобождает от ответственности.</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+    const m = document.getElementById("menu");
+    m.style.display = m.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
